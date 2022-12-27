@@ -1,0 +1,267 @@
+1. The java.io package contains nearly every class you might 
+ever need to perform input and output (I/O) in Java. 
+
+2. All these streams represent an input source and an output 
+destination. 
+
+3. The stream in the java.io package supports many data such as 
+primitives, object, localized characters, etc.
+
+4. Stream
+	1. A stream can be defined as a sequence of data. 
+	
+	2. There are two kinds of Streams 
+
+		1. InPutStream − The InputStream is used to read data from 
+		a source.
+
+		2. OutPutStream − The OutputStream is used for writing 
+		data to a destination.
+		
+		Source =====> Program =====> Destination
+	
+5. Java provides strong but flexible support for I/O related to 
+files and networks.
+
+6. Byte Streams
+	1. Java byte streams are used to perform input and output 
+	of 8-bit bytes. 
+	
+	2. Though there are many classes related to byte streams but 
+	the most frequently used classes are, FileInputStream and 
+	FileOutputStream.
+	
+	3. Java.io.FileInputStream Class in Java
+		1. FileInputStream is useful to read data from a file in 
+		the form of sequence of bytes. 
+		
+		2. FileInputStream is meant for reading streams of raw 
+		bytes such as image data. 
+		
+		3. For reading streams of characters, consider using 
+		FileReader.
+		
+		4. Constructor and Description
+			1. FileInputStream(File file) :Creates an input file 
+			stream to read from the specified File object.
+			
+			2. FileInputStream(FileDescriptor fdobj) :Creates an 
+			input file stream to read from the specified file 
+			descriptor.
+			
+			3. FileInputStream(String name) :Creates an input file 
+			stream to read from a file with the specified name. 
+			
+		5. Important Methods:
+		
+			1. int read() : Reads a byte of data from this input 
+			stream.
+			
+			2. int read(byte[] b) :Reads up to b.length bytes of 
+			data from this input stream into an array of bytes.
+			
+			3. int read(byte[] b, int off, int len) : Reads up to 
+			len bytes of data from this input stream into an array 
+			of bytes.
+			
+			4. long skip(long n) : Skips over and discards n bytes 
+			of data from the input stream.
+			
+			5. int available() : Returns an estimate of the number 
+			of remaining bytes that can be read (or skipped over) 
+			from this input stream .
+			
+			6. void close() : Closes this file input stream and 
+			releases any system resources associated with the 
+			stream.
+			
+	4.Java FileOutputStream Class
+		1. Java FileOutputStream is an output stream used for 
+		writing data to a file.
+		
+		2. If you have to write primitive values into a file, use 
+		FileOutputStream class. 
+		
+		3. You can write byte-oriented as well as 
+		character-oriented data through FileOutputStream class. 
+		But, for character-oriented data, it is preferred to 
+		use FileWriter than FileOutputStream.
+		
+		
+7. Character Streams
+	
+	1. Java Byte streams are used to perform input and output 
+	of 8-bit bytes, whereas Java Character streams are used to 
+	perform input and output for 16-bit unicode. 
+	
+	2. Though there are many classes related to character streams 
+	but the most frequently used classes are, FileReader and 
+	FileWriter. 
+	
+	3. Though internally FileReader uses FileInputStream and 
+	FileWriter uses FileOutputStream but here the major 
+	difference is that FileReader reads two bytes at a time 
+	and FileWriter writes two bytes at a time.
+	
+	4. FileWriter is useful to create a file writing characters 
+	into it.
+	
+	5. This class inherits from the OutputStream class.
+	
+	6. The constructors of this class assume that the default 
+	character encoding and the default byte-buffer size are 
+	acceptable. 
+	
+	7. To specify these values yourself, construct an 
+	OutputStreamWriter on a FileOutputStream.
+	
+	8. FileWriter is meant for writing streams of characters. 
+	
+	9. For writing streams of raw bytes, consider using a 
+	FileOutputStream.
+	
+	10. Constructors:
+		FileWriter(File file) – Constructs a FileWriter object given a File object.
+
+		FileWriter (File file, boolean append) – constructs a FileWriter object given a File object.
+
+		FileWriter (FileDescriptor fd) – constructs a FileWriter object associated with a file descriptor.
+
+		FileWriter (String fileName) – constructs a FileWriter object given a file name.
+
+		FileWriter (String fileName, Boolean append) – Constructs a FileWriter object given a file name with a Boolean indicating whether or not to append the data written.
+
+	11. Methods:
+
+		public void write (int c) throws IOException – Writes a single character.
+
+		public void write (char [] stir) throws IOException – Writes an array of characters.
+
+		public void write(String str)throws IOException – Writes a string.
+
+		public void write(String str,int off,int len)throws IOException – Writes a portion of a string. Here off is offset from which to start writing characters and len is number of character to write.			
+	
+	12. FileReader is useful to read data in the form of 
+	characters from a ‘text’ file.
+	
+	13. This class inherit from the InputStreamReader Class.
+	
+	14. The constructors of this class assume that the default 
+	character encoding and the default byte-buffer size 
+	are appropriate. 
+	
+	15. To specify these values yourself, construct an 
+	InputStreamReader on a FileInputStream.
+	
+	16. FileReader is meant for reading streams of characters. 
+	
+	17. For reading streams of raw bytes, consider using a 
+	FileInputStream.
+	
+	18. Constructors:
+	
+		FileReader(File file) – Creates a FileReader , given the File to read from
+
+		FileReader(FileDescripter fd) – Creates a new FileReader , given the FileDescripter to read from
+
+		FileReader(String fileName) – Creates a new FileReader , given the name of the file to read from
+	
+	19. Methods:
+
+		public int read () throws IOException – Reads a single character. This method will block until a character is available, an I/O error occurs, or the end of the stream is reached.
+
+		public int read(char[] cbuff) throws IOException – Reads characters into an array. This method will block until some input is available, an I/O error occurs, or the end of the stream is reached.
+
+		public abstract int read(char[] buff, int off, int len) throws IOException –Reads characters into a portion of an array. This method will block until some input is available, an I/O error occurs, or the end of the stream is reached.
+
+		Parameters:
+			cbuf – Destination buffer
+			off – Offset at which to start storing characters
+			len – Maximum number of characters to read
+	
+		public long skip(long n) throws IOException –Skips characters. This method will block until some characters are available, an I/O error occurs, or the end of the stream is reached.
+		Parameters:
+			n – The number of characters to skip 		
+
+8. Standard Streams
+
+	1. All the programming languages provide support for standard 
+	I/O where the user's program can take input from a keyboard 
+	and then produce an output on the computer screen. 
+	
+	2. If you are aware of C or C++ programming languages, then 
+	you must be aware of three standard devices STDIN, STDOUT 
+	and STDERR. 
+	
+	3. Similarly, Java provides the following three standard 
+	streams −
+
+		1. Standard Input − This is used to feed the data to user's 
+		program and usually a keyboard is used as standard input 
+		stream and represented as System.in.
+
+		2. Standard Output − This is used to output the data produced 
+		by the user's program and usually a computer screen is 
+		used for standard output stream and represented 
+		as System.out.
+
+		3. Standard Error − This is used to output the error data 
+		produced by the user's program and usually a computer 
+		screen is used for standard error stream and represented 
+		as System.err.
+ 	
+ 	4. Reading and Writing Files
+ 		1.As described earlier, a stream can be defined as a sequence of data. The InputStream is used to read data from a source and the OutputStream is used for writing data to a destination.
+ 		
+File Oriented Classes
+
+1. FileOutputStream
+2. FileInputStream 
+3. BufferedOutputStream 
+4. BufferedInputStream 
+5. SequenceInputStream
+6. ByteArrayOutputStream 
+7. ByteArrayInputStream 
+8. DataOutputStream
+9. DataInputStream 
+10. FilterOutputStream 
+11. FilterInputStream
+12. ObjectStreamClass
+13. ObjectStreamField 
+14. Console 
+15. FilePermission 
+16. Writer
+17. Reader
+18. FileWriter 
+19. FileReader 
+20. BufferedWriter 
+21. BufferedReader 
+22. CharArrayReader 
+23. CharArrayWriter
+24. PrintStream 
+25. PrintWriter 
+26. OutputStreamWriter
+27. InputStreamReader
+28. PushbackInputStream 
+29. PushbackReader 
+30. StringWriter 
+31. StringReader
+32. PipedWriter
+33. PipedReader
+34. FilterWriter
+35. FilterReader
+36. File 
+37. FileDescriptor
+38. RandomAccessFile
+39. Scanner 
+40. PrintStream 
+41. DeflaterOutputStream  
+42. InflaterInputStream 
+43. PipedInputStream 
+44. PipedOutputStream 
+45. Serialization and Deserialization
+46. Transient  
+
+
+ 
+ 		 
